@@ -125,5 +125,8 @@
       }
     }
   },
-  "defaultProject": "exportportal"
+  "defaultProject": "exportportal",
+  "cli": {
+    "analytics": "9fdc6683-9820-414d-9639-92f72aae2eaf"
+  }
 }
