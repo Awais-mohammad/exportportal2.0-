@@ -1,0 +1,456 @@
+/*
+FONTS
+*/
+
+////////////////////=================NAVBAR===================//////////////////////////////
+.header {
+    position: relative;
+}
+.headInner {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    background: transparent;
+    z-index: 1;
+}
+.headInner a.logo img {
+    width: 98%;
+    margin: 1em 1em;
+    /* height: 99px; */
+}
+.headInner .mainMenu {
+    width: 800px;
+    margin-right: 40px;
+}
+.headInner .mainMenu .icons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px 0px 5px 0px;
+    border-bottom: 1px solid #fff;
+}
+.headInner .mainMenu .icons a img {
+    width: 20px;
+    position: relative;
+    top: -10px;
+    padding: 0 1px;
+    height: 20px;
+    margin-left: 10px;
+}
+.headInner .mainMenu ul.socialIcons {
+    padding: 5px 0;
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.headInner .mainMenu ul.myTopnav {
+    display: none;
+}
+.headInner .mainMenu ul.socialIcons li {
+    margin: 0px;
+    margin-top: 20px;
+}
+.headInner .mainMenu ul.socialIcons li a {
+    color: #fff;
+    font-family: "Work Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 16px;
+    padding: 15px 4px;
+    padding-bottom: 5px;
+    margin: 0px 8px;
+    text-decoration: none;
+    font-style: normal;
+}
+.headInner .mainMenu ul.socialIcons li a.login {
+    width: 95px;
+    height: 30px;
+    color: #4576bb;
+    background: #fff;
+    font-family: "Work Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 15px 20px;
+    margin: 0px 8px;
+    font-style: normal;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.headInner .mainMenu ul.socialIcons li button.addProduct {
+    width: 65px;
+    height: 25px;
+    color: #fff;
+    background: #4576bb;
+    font-family: "Work Sans", sans-serif;
+    font-size: 8px;
+    font-weight: 400;
+    padding: 5px;
+    margin: 0px 5px;
+    font-style: normal;
+    border: 1px solid #4576bb;
+    border-radius: 5px;
+}
+.headInner .mainMenu ul.socialIcons li a.signup {
+    width: 65px;
+    height: 25px;
+    color: #fff;
+    background: transparent;
+    font-family: "Work Sans", sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 20px;
+    width: 95px;
+    height: 30px;
+    margin: 0px;
+    font-style: normal;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+.headInner .mainMenu ul.socialIcons li a img {
+    width: 15px;
+    /* height: 19.15px; */
+}
+.headInner .mainMenu ul.socialIcons li a.active {
+    border-bottom: 2px solid #fff;
+}
+.headInner .mainMenu ul.socialIcons li a:hover {
+    border-bottom: 2px solid #fff;
+    opacity: 0.7;
+}
+
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+/* =-=-=-=-=-=-=-=-=Dropdown=-=-=-=-=-=-=-=-=-=-= */
+.headInner .mainMenu ul.socialIcons li .dropdown {
+    display: inline-block;
+    position: relative;
+}
+.headInner .mainMenu ul.socialIcons li .dropdown .dd-button {
+    width: 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 2px 0px 0px 0px;
+}
+.headInner .mainMenu ul.socialIcons li .dropdown .dd-button span {
+    color: #ffffff;
+    font-family: "Work Sans", sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 16px;
+    font-style: normal;
+    margin: 0px;
+}
+.headInner .mainMenu ul.socialIcons li .dropdown .dd-button img.dp {
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+}
+.headInner .mainMenu ul.socialIcons li .dropdown .dd-button img.menu {
+    height: 4.91px;
+    width: 7.2px;
+    margin-left: 5px;
+}
+.dd-input {
+    display: none;
+}
+.dd-menu {
+    width: 135px;
+    position: absolute;
+    top: 100%;
+    right: 0%;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin: 2px 0 0 0;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
+    background: #fff;
+    list-style-type: none;
+    z-index: 2;
+}
+.dd-input + .dd-menu {
+    display: none;
+}
+.dd-input:checked + .dd-menu {
+    display: block;
+}
+.dd-menu li {
+    padding: 7px;
+    cursor: pointer;
+    white-space: nowrap;
+    color: #707070;
+    display: flex;
+}
+.dd-menu li img.edit {
+    width: 12.67px;
+    height: 12.67px;
+    margin-right: 10px;
+}
+.dd-menu li img.solid {
+    width: 13.07px;
+    height: 13.07px;
+    margin-right: 10px;
+}
+.dd-menu li.borderbottomf {
+    border-bottom: 1px solid #fff;
+}
+.dd-menu li:hover {
+    background: #d14031;
+}
+.dd-menu li a {
+    display: block;
+    margin: -10px -20px;
+    padding: 10px 20px;
+}
+.dd-menu li.divider {
+    padding: 0;
+    border-bottom: 1px solid #cccccc;
+}
+/*------------banner----------*/
+.headmainbanner .banner {
+    position: relative;
+}
+.headmainbanner .banner img {
+    width: 100%;
+    height: 568px;
+    /* height: 536.47px; */
+}
+.headmainbanner .banner .cont {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    width: 630px;
+    text-align: center;
+}
+.headmainbanner .banner .cont h1 {
+    color: #fff;
+    font-family: "Work Sans", sans-serif;
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: 0px;
+    font-style: normal;
+    margin: 0px 0px 5px 0px;
+}
+.headmainbanner .banner .cont p {
+    color: #fff;
+    font-family: "Work Sans", sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: 1px;
+    font-style: normal;
+    margin: 0px;
+}
+.headmainbanner .banner .cont .inputSearch {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.headmainbanner .banner .cont .inputSearch input {
+    width: 100%;
+    height: 60px;
+    color: #878787;
+    top: 2em;
+    position: relative;
+    background: #fff;
+    font-family: "Work Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 12px;
+    padding: 5px 110px 5px 15px;
+    margin: 0px;
+    font-style: normal;
+    border: none;
+    border-radius: 5px;
+}
+.headmainbanner .banner .cont .inputSearch button {
+    position: absolute;
+    top: 2em;
+    right: 0%;
+    transform: translate(0%, -0%);
+    width: 90px;
+    height: 60px;
+    color: #fff;
+    background: #4576bb;
+    font-family: "Work Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 5px;
+    margin: 0px;
+    font-style: normal;
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.headmainbanner .banner .cont .form-row .form-group {
+    margin-bottom: 0px;
+    position: relative;
+    top: 3em;
+}
+.headmainbanner .banner .cont .form-row .form-group input {
+    width: 100%;
+    height: 36px;
+    color: rgb(255, 255, 255, 0.8);
+    background: transparent;
+    font-family: "Work Sans", sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 10px;
+    padding: 5px;
+    margin: 0px;
+    font-style: normal;
+    border: 1px solid rgb(255, 255, 255, 0.8);
+    border-radius: 5px;
+}
+.headmainbanner .banner .cont .form-row .form-group input::placeholder {
+    color: rgb(255, 255, 255, 0.8);
+    font-family: "Work Sans", sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 10px;
+    font-style: normal;
+}
+.headmainbanner .banner .cont .form-row .form-group select {
+    width: 100%;
+    height: 36px;
+    color: rgb(255, 255, 255, 0.8);
+    background: transparent;
+    font-family: "Work Sans", sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 10px;
+    padding: 5px;
+    margin: 0px;
+    font-style: normal;
+    border: 1px solid rgb(255, 255, 255, 0.8);
+    border-radius: 5px;
+}
+
+.latestNews {
+    background: #f5f5f5;
+    padding: 25px;
+  }
+  .latestNews h1.heading {
+    color: #000;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 25px;
+    font-style: normal;
+    text-align: center;
+    margin: 0px 0px 8px 0px;
+  }
+  .recentcolumns {
+    width: 95%;
+    margin: 0px auto;
+  }
+  .recentcolumns .arrivalcard {
+    position: relative;
+    /* width: 244px !important; */
+    /* height: 393px; */
+    margin: 0px 10px;
+    background: #fff;
+    box-shadow: 0 0 5px 3px #e6e6e6;
+    border-radius: 8px;
+  }
+  .recentcolumns .arrivalcard .cardlabel {
+    position: absolute;
+    top: 0%;
+    left: 5%;
+    width: 18px;
+    height: 25px;
+    background: #4576BB;
+    padding: 3px 0px;
+  }
+  .recentcolumns .arrivalcard .cardlabel p {
+    color: #fff;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 6px;
+    font-weight: 400;
+    line-height: 8px;
+    font-style: normal;
+    text-align: center;
+    margin: 0px;
+  }
+  .recentcolumns .arrivalcard img {
+    width: 100%;
+    /* height: 163px; */
+  }
+  .recentcolumns .arrivalcard .innercardmargin {
+    margin: 3px;
+  }
+  .recentcolumns .arrivalcard .innercardmargin .cardlineflex {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 0px 0px 3px 0px;
+  }
+  .recentcolumns .arrivalcard .innercardmargin .cardlineflex a {
+    display: flex;
+    align-items: center;
+    color: #5F5F5F;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 7px;
+    font-weight: 400;
+    line-height: 5px;
+    font-style: normal;
+    margin-right: 5px;
+    text-decoration: none;
+  }
+  .recentcolumns .arrivalcard .innercardmargin .cardlineflex a img {
+    width: 6.62px;
+    height: 7.11px;
+    margin-right: 2px;
+  }
+  .recentcolumns .arrivalcard .innercardmargin h4 {
+    color: #000000;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 8px;
+    font-weight: 600;
+    line-height: 14px;
+    font-style: normal;
+  }
+  .recentcolumns .arrivalcard .innercardmargin h6 {
+    color: #5F5F5F;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 6px;
+    font-weight: 400;
+    line-height: 10px;
+    font-style: normal;
+  }
+  .recentcolumns .arrivalcard .innercardmargin button {
+    width: 50px;
+    height: 20px;
+    color: #fff;
+    background: #4576BB;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 6px;
+    font-weight: 400;
+    font-style: normal;
+    padding: 1px;
+  }
+  .recentcolumns button.slick-arrow {
+    top: 50%;
+  }
+  .recentcolumns button.slick-arrow::before {
+    opacity: 1;
+    color: #4576BB;
+    font-size: 25px;
+    line-height: 0px;
+  }
+  
