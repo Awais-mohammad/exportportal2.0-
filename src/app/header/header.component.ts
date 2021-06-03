@@ -169,6 +169,7 @@ export class HeaderComponent implements OnInit {
           console.log('tada logged in');
 
           this.loggedIn = false;
+          localStorage.setItem('log','true');
 
           this.router.navigateByUrl('/exporter-profile', { queryParams: { id: user.user.uid } })
         }
@@ -268,7 +269,7 @@ export class HeaderComponent implements OnInit {
 
           }
           else {
-
+            this.loggedIn =false;
             console.log('user is not logged in as vendor');
           }
         })
