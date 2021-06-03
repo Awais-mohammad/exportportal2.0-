@@ -280,7 +280,7 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.firebaseauth.signOut().then(() => {
-
+      this.router.navigate(['/home'])
     }).catch(() => {
       alert('unable to signout')
     })
