@@ -78,6 +78,7 @@ export class ProductsComponent implements OnInit {
           for (var k = 0; k < data.docs.length; k++) {
             if (data.docs[k]._delegate._document.data.value.mapValue.fields != undefined) {
               this.products.push(data.docs[k]._delegate._document.data.value.mapValue.fields);
+             
             }
             if (k == data.docs.length - 1) {
               getDocs.unsubscribe();
@@ -86,17 +87,8 @@ export class ProductsComponent implements OnInit {
         }
       })
     }
-    console.log('products', this.products.length);
-    if (this.products) {
-      for (var i = 0; i < this.products.length; i++) {
-        console.log('prod--', this.products[i]);
-
-      }
-    }
-    else {
-      console.log('products not found');
-
-    }
+    console.log('products', this.products);
+   
   }
 
 
