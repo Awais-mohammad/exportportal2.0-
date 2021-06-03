@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private firestore: AngularFirestore,
     private firebaseauth: AngularFireAuth,
+    private titleService: Title,
   ) { }
 
   topExporters: any;
@@ -20,13 +22,15 @@ export class HomeComponent implements OnInit {
 
   gettopExporters() {
     const top = true
-    this.firestore.collection('vendors', querry => querry.where('top', '==', top)).valueChanges().subscribe((te: any) => {
+    this.firestore.collection('vendors', querry => querry.where('top', '==', top).orderBy('timestamp', 'asc')).valueChanges().subscribe((te: any) => {
       console.log('top exporters are', te);
       this.topExporters = te;
     })
   }
   ngOnInit(): void {
-    // this.gettopExporters()
+    //  this.gettopExporters()
+
+    ////////////////////title services/////////////////////////////
 
 
 
