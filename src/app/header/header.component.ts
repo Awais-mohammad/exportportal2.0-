@@ -253,12 +253,29 @@ export class HeaderComponent implements OnInit {
     this.checked = !this.checked
   }
 
+  /////////////check login
+
+  checkLogin() {
+    const authsub = this.firebaseauth.authState.subscribe(cuser => {
+      this.firestore.collection('vendors').doc(cuser.uid).valueChanges().subscribe(data => {
+        if (data == undefined) {
+          console.log('user is not logged in as vendor');
+
+        }
+        else {
+
+          console.log('user is not logged in as vendor');
+        }
+      })
+    })
+  }
+
   ngOnInit(): void {
     this.getCategories()
     if (this.choosedcat) {
       alert('choosed' + this.choosedcat)
     }
-
+this.checkLogin()
 
   }
 
