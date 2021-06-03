@@ -1,6 +1,40 @@
 <app-header></app-header>
 <main class="main">
-
+ <!-- =-=-=-=-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-- -->
+ <div class="headmainbanner">
+  <div class="banner">
+    <img src="../../assets/images/Banner.png" height="" width="" alt="banner" />
+    <div class="cont">
+      <p>Pakistan's First Export Portal</p>
+      <h1>FINDING EXPORTERS IN PAKISTAN
+        MADE EASIER</h1>
+      <div class="inputSearch">
+        <input type="text" name="search" placeholder="Type here to search.." />
+        <button class="btn">Search</button>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-3">
+          <input type="text" class="form-control" id="inputCity" placeholder="Exporter">
+        </div>
+        <div class="form-group col-3">
+          <select id="inputState" class="form-control">
+            <option selected>Choose...</option>
+            <option>...</option>
+          </select>
+        </div>
+        <div class="form-group col-3">
+          <input type="text" class="form-control" id="inputZip" placeholder="Product">
+        </div>
+        <div class="form-group col-3">
+          <select id="inputState" class="form-control">
+            <option selected>Choose...</option>
+            <option>...</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
   <section class="brandlogos">
     <img style="max-height: 4em;object-fit: contain;" src="../../assets/images/spon-6.png" width="" height="" alt="" />
     <img style="max-height: 4em;object-fit: contain;" src="../../assets/images/spon-3.png" width="" height="" alt="" />
@@ -123,10 +157,21 @@
   <section class="topExporters overOne">
     <h1 class="heading">Top Exporters</h1>
     <div class="exporterNameCard">
-      <div class="expoCard">
-        <img class="expologo" src="../../assets/images/Shan-logo.png" width="" height="" alt="" />
-        <h3>Shan Foods (Private)
-          Limited</h3>
+      <div class="expoCard" *ngFor="let data of topExporters" >
+
+        <!-- accountstatus: "approved"
+adress: "29, sector 23, korangi industrial area, karachi - pakistan"
+category: "home and kitchen"
+companyEmail: "info@shanfoods.com"
+imageURL: "https://exportportal.site/vendors/Shan.png"
+name: "shan foods (private)limited"
+phone: 213505307679
+timestamp: t {seconds: 1614804031, nanoseconds: 826000000}
+top: true
+userID: "cjwcnFAOPigV6jWsebFg1huQm5E2"
+websiteURL: "https://www.shanfoods.com" -->
+        <img class="expologo" src="{{data.imageURL}}" width="" height="" alt="" />
+        <h3>{{data.name}}</h3>
         <div class="rating">
           <i class="fa fa-star"></i>
           <i class="fa fa-star"></i>
@@ -137,11 +182,11 @@
         </div>
         <div class="cataMap">
           <img class="diff" src="../../assets/images/different-squares.png" width="" height="" alt="" />
-          <p>Category here</p>
+          <p>{{data.category}}</p>
         </div>
         <div class="cataMap">
           <img class="loc" src="../../assets/images/location-pin(1).png" width="" height="" alt="" />
-          <p>Lorem ipsum Dolar sit Amet sed</p>
+          <p>{{data.adress}}</p>
         </div>
         <div class="isoimg">
           <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
@@ -151,210 +196,9 @@
         </div>
         <button class="btn">View Details</button>
       </div>
-      <div class="expoCard">
-        <img class="expologo" src="../../assets/images/Shan-logo.png" width="" height="" alt="" />
-        <h3>Shan Foods (Private)
-          Limited</h3>
-        <div class="rating">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star grey"></i>
-          <span>5.0</span>
-        </div>
-        <div class="cataMap">
-          <img class="diff" src="../../assets/images/different-squares.png" width="" height="" alt="" />
-          <p>Category here</p>
-        </div>
-        <div class="cataMap">
-          <img class="loc" src="../../assets/images/location-pin(1).png" width="" height="" alt="" />
-          <p>Lorem ipsum Dolar sit Amet sed</p>
-        </div>
-        <div class="isoimg">
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-        </div>
-        <button class="btn">View Details</button>
-      </div>
-      <div class="expoCard">
-        <img class="expologo" src="../../assets/images/Shan-logo.png" width="" height="" alt="" />
-        <h3>Shan Foods (Private)
-          Limited</h3>
-        <div class="rating">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star grey"></i>
-          <span>5.0</span>
-        </div>
-        <div class="cataMap">
-          <img class="diff" src="../../assets/images/different-squares.png" width="" height="" alt="" />
-          <p>Category here</p>
-        </div>
-        <div class="cataMap">
-          <img class="loc" src="../../assets/images/location-pin(1).png" width="" height="" alt="" />
-          <p>Lorem ipsum Dolar sit Amet sed</p>
-        </div>
-        <div class="isoimg">
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-        </div>
-        <button class="btn">View Details</button>
-      </div>
-      <div class="expoCard">
-        <img class="expologo" src="../../assets/images/Shan-logo.png" width="" height="" alt="" />
-        <h3>Shan Foods (Private)
-          Limited</h3>
-        <div class="rating">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star grey"></i>
-          <span>5.0</span>
-        </div>
-        <div class="cataMap">
-          <img class="diff" src="../../assets/images/different-squares.png" width="" height="" alt="" />
-          <p>Category here</p>
-        </div>
-        <div class="cataMap">
-          <img class="loc" src="../../assets/images/location-pin(1).png" width="" height="" alt="" />
-          <p>Lorem ipsum Dolar sit Amet sed</p>
-        </div>
-        <div class="isoimg">
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-        </div>
-        <button class="btn">View Details</button>
-      </div>
-      <div class="expoCard">
-        <img class="expologo" src="../../assets/images/Shan-logo.png" width="" height="" alt="" />
-        <h3>Shan Foods (Private)
-          Limited</h3>
-        <div class="rating">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star grey"></i>
-          <span>5.0</span>
-        </div>
-        <div class="cataMap">
-          <img class="diff" src="../../assets/images/different-squares.png" width="" height="" alt="" />
-          <p>Category here</p>
-        </div>
-        <div class="cataMap">
-          <img class="loc" src="../../assets/images/location-pin(1).png" width="" height="" alt="" />
-          <p>Lorem ipsum Dolar sit Amet sed</p>
-        </div>
-        <div class="isoimg">
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-        </div>
-        <button class="btn">View Details</button>
-      </div>
-      <div class="expoCard">
-        <img class="expologo" src="../../assets/images/Shan-logo.png" width="" height="" alt="" />
-        <h3>Shan Foods (Private)
-          Limited</h3>
-        <div class="rating">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star grey"></i>
-          <span>5.0</span>
-        </div>
-        <div class="cataMap">
-          <img class="diff" src="../../assets/images/different-squares.png" width="" height="" alt="" />
-          <p>Category here</p>
-        </div>
-        <div class="cataMap">
-          <img class="loc" src="../../assets/images/location-pin(1).png" width="" height="" alt="" />
-          <p>Lorem ipsum Dolar sit Amet sed</p>
-        </div>
-        <div class="isoimg">
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-        </div>
-        <button class="btn">View Details</button>
-      </div>
-      <div class="expoCard">
-        <img class="expologo" src="../../assets/images/Shan-logo.png" width="" height="" alt="" />
-        <h3>Shan Foods (Private)
-          Limited</h3>
-        <div class="rating">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star grey"></i>
-          <span>5.0</span>
-        </div>
-        <div class="cataMap">
-          <img class="diff" src="../../assets/images/different-squares.png" width="" height="" alt="" />
-          <p>Category here</p>
-        </div>
-        <div class="cataMap">
-          <img class="loc" src="../../assets/images/location-pin(1).png" width="" height="" alt="" />
-          <p>Lorem ipsum Dolar sit Amet sed</p>
-        </div>
-        <div class="isoimg">
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-        </div>
-        <button class="btn">View Details</button>
-      </div>
-      <div class="expoCard">
-        <img class="expologo" src="../../assets/images/Shan-logo.png" width="" height="" alt="" />
-        <h3>Shan Foods (Private)
-          Limited</h3>
-        <div class="rating">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star grey"></i>
-          <span>5.0</span>
-        </div>
-        <div class="cataMap">
-          <img class="diff" src="../../assets/images/different-squares.png" width="" height="" alt="" />
-          <p>Category here</p>
-        </div>
-        <div class="cataMap">
-          <img class="loc" src="../../assets/images/location-pin(1).png" width="" height="" alt="" />
-          <p>Lorem ipsum Dolar sit Amet sed</p>
-        </div>
-        <div class="isoimg">
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-          <img src="../../assets/images/iso-2-1.png" width="" height="" alt="" />
-        </div>
-        <button class="btn">View Details</button>
-      </div>
+
     </div>
-    <div class="pagination">
-      <a href="#">1</a>
-      <a href="#">2</a>
-      <a href="#">3</a>
-      <a href="#">...</a>
-      <a href="#"><img src="../../assets/images/next(2).png" width="" height="" alt="" /></a>
-    </div>
+   
   </section>
   <section class="topCategories">
     <h1 class="heading">Top Categories</h1>

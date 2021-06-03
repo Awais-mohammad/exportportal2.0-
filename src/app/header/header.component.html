@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header openheaderwithoutbanner">
   <div class="headInner">
     <a href="#" title="" class="logo">
       <img src="../../assets/images/logo.png" width="" height="" alt="" />
@@ -40,16 +40,35 @@
         <li>
           <a href="/register">Registration</a>
         </li>
-        <li>
+        <li *ngIf="loggedIn">
           <a href="#" type="button" class="btn login" data-toggle="modal" data-target="#loginModal">
             LOGIN
           </a>
         </li>
-        <li>
+        <li *ngIf="loggedIn">
           <a href="#" type="button" class="btn signup" data-toggle="modal" data-target="#signupModal">
             SIGNUP
           </a>
         </li>
+        <li *ngIf="!loggedIn">
+          <button class="btn addProduct">Add product</button>
+      </li>
+      <li *ngIf="!loggedIn">
+          <label class="dropdown">
+              <div class="dd-button">
+                  <img class="dp" src="../../assets/images/dp.png" width="" height="" alt="" />
+                  <span> John Smith </span>
+                  <img class="menu" src="../../assets/images/menu.png" width="" height="" alt="" />
+              </div>
+              <input type="checkbox" class="dd-input" id="test">
+              <ul class="dd-menu">
+                  <li><img class="edit" src="../../assets/images/edit (1).png" width="" height=""
+                          alt="" /><span>Edit</span></li>
+                  <li><img class="solid" src="../../assets/images/Solid.png" width="" height="" alt="" /><span>Sign
+                          out</span></li>
+              </ul>
+          </label>
+      </li>
       </ul>
       <ul class="myTopnav">
         <div class="navbar navbar-expand-md navbar-light">
@@ -341,39 +360,5 @@
   </div>
 
 
-  <!-- =-=-=-=-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-- -->
-  <div class="headmainbanner">
-    <div class="banner">
-      <img src="../../assets/images/Banner.png" height="" width="" alt="banner" />
-      <div class="cont">
-        <p>Pakistan's First Export Portal</p>
-        <h1>FINDING EXPORTERS IN PAKISTAN
-          MADE EASIER</h1>
-        <div class="inputSearch">
-          <input type="text" name="search" placeholder="Type here to search.." />
-          <button class="btn">Search</button>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-3">
-            <input type="text" class="form-control" id="inputCity" placeholder="Exporter">
-          </div>
-          <div class="form-group col-3">
-            <select id="inputState" class="form-control">
-              <option selected>Choose...</option>
-              <option>...</option>
-            </select>
-          </div>
-          <div class="form-group col-3">
-            <input type="text" class="form-control" id="inputZip" placeholder="Product">
-          </div>
-          <div class="form-group col-3">
-            <select id="inputState" class="form-control">
-              <option selected>Choose...</option>
-              <option>...</option>
-            </select>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+ 
 </header>

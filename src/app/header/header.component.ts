@@ -5,6 +5,7 @@ import { HttpClient, HttpRequest, HttpEvent, HttpResponse, HttpEventType } from 
 import { Observable } from 'rxjs';
 import * as firebase from 'firebase/app'
 import { Router } from '@angular/router';
+declare var $;
 
 @Component({
   selector: 'app-header',
@@ -148,10 +149,11 @@ export class HeaderComponent implements OnInit {
     }
     else {
       this.login()
+      $('.loginModal').hide();
     }
   }
 
-  loggedIn: boolean = false;
+  loggedIn: boolean = true;
   ///////////////////login validator////////////////////
 
   login() {
@@ -166,7 +168,7 @@ export class HeaderComponent implements OnInit {
         else {
           console.log('tada logged in');
 
-          this.loggedIn = true;
+          this.loggedIn = false;
 
           this.router.navigateByUrl('/exporter-profile', { queryParams: { id: user.user.uid } })
         }
@@ -260,6 +262,7 @@ export class HeaderComponent implements OnInit {
 
       if (cuser && cuser.uid) {
         this.firestore.collection('vendors').doc(cuser.uid).valueChanges().subscribe(data => {
+          console.log(data)
           if (data == undefined) {
             console.log('user is not logged in as vendor');
 
