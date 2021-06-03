@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
 
- 
+
 
   $('.carousel').slick({
     speed: 500,
@@ -17,9 +17,9 @@ $(document).ready(function () {
   });
   // ==================================================================
   $('.recentcolumns').slick({
-    
+
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: false,
     autoplaySpeed: 2000,
@@ -51,5 +51,14 @@ $(document).ready(function () {
     arrows: true,
   });
   // ==================================================================
+
+  $('.brandlogos').slick({
+    slidesToShow: 5,
+    autoplay: true,
+    autoplaySpeed: 1000,
+    dots: false,
+    prevArrow: false,
+    nextArrow: false
+  });
 
 });

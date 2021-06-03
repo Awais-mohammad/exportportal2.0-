@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-exporters',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExportersComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private firestore: AngularFirestore,
+    private firebaseauth: AngularFireAuth,
+  ) { }
+
+  exporters: any;
+
+  ///////get all registered exporters///////////
+  allExporters() {
+    const status = 'approved'
+    this.firestore.collection('vendors', query => query.where('accountstatus', '==', status)).valueChanges().subscribe(exporters => {
+      this.exporters = exporters
+      console.log(this.exporters);
+
+
+    })
+  }
 
   ngOnInit(): void {
+    this.allExporters()
   }
 
 }

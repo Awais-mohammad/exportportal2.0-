@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-exporter-profile',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExporterProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) {
+    console.log(this.router.getCurrentNavigation().extras.queryParams.id, 'asfu')
+  }
 
   ngOnInit(): void {
   }
