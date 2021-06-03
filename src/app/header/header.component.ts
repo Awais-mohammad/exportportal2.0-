@@ -257,16 +257,20 @@ export class HeaderComponent implements OnInit {
 
   checkLogin() {
     const authsub = this.firebaseauth.authState.subscribe(cuser => {
-      this.firestore.collection('vendors').doc(cuser.uid).valueChanges().subscribe(data => {
-        if (data == undefined) {
-          console.log('user is not logged in as vendor');
 
-        }
-        else {
+      if (cuser && cuser.uid) {
+        this.firestore.collection('vendors').doc(cuser.uid).valueChanges().subscribe(data => {
+          if (data == undefined) {
+            console.log('user is not logged in as vendor');
 
-          console.log('user is not logged in as vendor');
-        }
-      })
+          }
+          else {
+
+            console.log('user is not logged in as vendor');
+          }
+        })
+      }
+
     })
   }
 
@@ -275,7 +279,7 @@ export class HeaderComponent implements OnInit {
     if (this.choosedcat) {
       alert('choosed' + this.choosedcat)
     }
-this.checkLogin()
+    this.checkLogin()
 
   }
 
