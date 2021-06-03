@@ -11,7 +11,11 @@ export class ExporterProfileComponent implements OnInit {
   constructor(
     private router: Router,
   ) {
-    console.log(this.router.getCurrentNavigation().extras.queryParams.id, 'asfu')
+  
+    setTimeout(() => {
+      console.log(this.router.getCurrentNavigation().id, 'asfu')
+    }, 2000);
+
   }
 
   ngOnInit(): void {

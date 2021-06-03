@@ -169,7 +169,7 @@ export class HeaderComponent implements OnInit {
           console.log('tada logged in');
 
           this.loggedIn = false;
-          localStorage.setItem('log','true');
+          localStorage.setItem('log', 'true');
 
           this.router.navigateByUrl('/exporter-profile', { queryParams: { id: user.user.uid } })
         }
@@ -269,12 +269,20 @@ export class HeaderComponent implements OnInit {
 
           }
           else {
-            this.loggedIn =false;
+            this.loggedIn = false;
             console.log('user is not logged in as vendor');
           }
         })
       }
 
+    })
+  }
+
+  logout() {
+    this.firebaseauth.signOut().then(() => {
+
+    }).catch(() => {
+      alert('unable to signout')
     })
   }
 
