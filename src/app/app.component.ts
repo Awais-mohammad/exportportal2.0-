@@ -19,15 +19,22 @@ export class AppComponent {
   }
   checkLogin() {
     const authsub = this.firebaseauth.authState.subscribe(cuser => {
-      this.firestore.collection('vendors').doc(cuser.uid).valueChanges().subscribe(data => {
-        if (data == undefined) {
-          console.log('user is not logged in as vendor');
+      if (cuser) {
+        if (cuser.uid) {
+          this.firestore.collection('vendors').doc(cuser.uid).valueChanges().subscribe(data => {
+            if (data == undefined) {
+              console.log('user is not logged in as vendor');
 
+            }
+            else {
+
+              console.log('user is not logged in as vendor');
+
+
+            }
+          })
         }
         else {
-
-          console.log('user is not logged in as vendor');
-
           this.firebaseauth.signInAnonymously().then((u) => {
             const userID = u.user.uid
             const date = new Date()
@@ -40,9 +47,23 @@ export class AppComponent {
 
           })
         }
-      })
+      }
+      else {
+        this.firebaseauth.signInAnonymously().then((u) => {
+          const userID = u.user.uid
+          const date = new Date()
+          this.firestore.collection('userstrack').doc(u.user.uid).set({
+            userID,
+            date,
+          })
+        }).then(() => {
+          console.log('user signed in anaounamously');
+
+        })
+      }
     })
   }
+
 
 
 }
