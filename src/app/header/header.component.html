@@ -19,27 +19,63 @@
         </a>
       </div>
       <ul class="socialIcons">
-        <li>
+        <li *ngIf="currentPage== '/home'">
           <a href="/" class="active"><img src="../../assets/images/home-icon.png" width="" height="" alt="" /></a>
         </li>
-        <li>
-          <a href="/exporters">Exporters</a>
+
+        <li *ngIf="currentPage!= '/home'">
+          <a href="/"><img src="../../assets/images/home-icon.png" width="" height="" alt="" /></a>
         </li>
-        <li>
-          <a href="/product">Products</a>
+
+        <li *ngIf="currentPage!= '/exporters'">
+          <a (click)="gotoPage('exporters')">Exporters</a>
         </li>
-        <li>
-          <a href="/about">About</a>
+
+        <li *ngIf="currentPage== '/exporters'">
+          <a (click)="gotoPage('exporters')" class="active">Exporters</a>
         </li>
-        <li>
-          <a href="/news">News</a>
+
+        <li *ngIf="currentPage== '/product'">
+          <a class="active" (click)="gotoPage('product')">Products</a>
         </li>
-        <li>
-          <a href="/contact">Contact</a>
+
+        <li *ngIf="currentPage!= '/product'">
+          <a (click)="gotoPage('product')">Products</a>
         </li>
-        <li>
-          <a href="/register">Registration</a>
+
+        <li *ngIf="currentPage!= '/about'">
+          <a (click)="gotoPage('about')">About</a>
         </li>
+
+        <li *ngIf="currentPage== '/about'">
+          <a class="active" (click)="gotoPage('about')">About</a>
+        </li>
+
+        <li *ngIf="currentPage== '/news'">
+          <a class="active" (click)="gotoPage('news')">News</a>
+        </li>
+
+        <li *ngIf="currentPage!= '/news'">
+          <a (click)="gotoPage('news')">News</a>
+        </li>
+
+        <li *ngIf="currentPage!= '/contact'">
+          <a (click)="gotoPage('contact')">Contact</a>
+        </li>
+
+        <li *ngIf="currentPage== '/contact'">
+          <a class="active" (click)="gotoPage('contact')">Contact</a>
+        </li>
+
+
+        <li *ngIf="currentPage== '/register'">
+          <a class="active" (click)="gotoPage('register')">Registration</a>
+        </li>
+
+        <li *ngIf="currentPage!= '/register'">
+          <a (click)="gotoPage('register')">Registration</a>
+        </li>
+
         <li *ngIf="loggedIn">
           <a href="#" type="button" class="btn login" data-toggle="modal" data-target="#loginModal">
             LOGIN
@@ -52,23 +88,27 @@
         </li>
         <li *ngIf="!loggedIn">
           <button class="btn addProduct">Add product</button>
-      </li>
-      <li *ngIf="!loggedIn">
+        </li>
+        <li *ngIf="!loggedIn">
           <label class="dropdown">
-              <div class="dd-button">
-                  <img class="dp" src="../../assets/images/dp.png" width="" height="" alt="" />
-                  <span> John Smith </span>
-                  <img class="menu" src="../../assets/images/menu.png" width="" height="" alt="" />
-              </div>
-              <input type="checkbox" class="dd-input" id="test">
-              <ul class="dd-menu">
-                  <li><img class="edit" src="../../assets/images/edit (1).png" width="" height=""
-                          alt="" /><span>Edit</span></li>
-                  <li><img class="solid" src="../../assets/images/Solid.png" width="" height="" alt="" (click)="logout()" /><span (click)="logout()">Sign
-                          out</span></li>
-              </ul>
+            <div class="dd-button">
+              <img class="dp" src="../../assets/images/dp.png" width="" height="" alt="" />
+              <span> John Smith </span>
+              <img class="menu" src="../../assets/images/menu.png" width="" height="" alt="" />
+            </div>
+            <input type="checkbox" class="dd-input" id="test">
+            <ul class="dd-menu">
+              <li><img class="solid" src="../../assets/images/Solid.png" width="" height="" alt=""
+                  (click)="viewProfile()" /><span (click)="viewProfile()">Profile</span></li>
+              <li><img class="edit" src="../../assets/images/edit (1).png" width="" height="" alt="" /><span>Edit</span>
+              </li>
+              <li><img class="solid" src="../../assets/images/Solid.png" width="" height="" alt=""
+                  (click)="logout()" /><span (click)="logout()">Sign
+                  out</span></li>
+
+            </ul>
           </label>
-      </li>
+        </li>
       </ul>
       <ul class="myTopnav">
         <div class="navbar navbar-expand-md navbar-light">
@@ -210,6 +250,8 @@
               <img (click)="passtoggler()" class="eye" src="../../assets/images/eye.png" width="" height="" alt="" />
             </div>
           </div>
+
+
           <div class="form-row">
             <div class="form-group col-sm-12">
               <label for="email"><img src="../../assets/images/locked-padlock.png" width="" height="" alt="" />
@@ -234,6 +276,17 @@
 
             </div>
           </div>
+
+          <div class="form-row">
+            <div class="form-group col-sm-12">
+              <label for="email"><img src="../../assets/images/locked-padlock.png" width="" height="" alt="" />
+                Website</label>
+              <input [(ngModel)]="websiteURL" type="text" class="form-control" id="email" />
+
+
+            </div>
+          </div>
+
 
           <div *ngIf="cats" class="form-row">
             <div class="form-group col-sm-12">
@@ -360,5 +413,5 @@
   </div>
 
 
- 
+
 </header>

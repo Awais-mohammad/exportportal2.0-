@@ -23,6 +23,7 @@ export class ProductsComponent implements OnInit {
   onResize(event) {
     this.width = window.innerWidth;
   }
+/////lksdhosighosid
 
   width = window.innerWidth;
   categories: any;

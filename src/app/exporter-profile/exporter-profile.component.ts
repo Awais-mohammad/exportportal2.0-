@@ -11,10 +11,8 @@ export class ExporterProfileComponent implements OnInit {
   constructor(
     private router: Router,
   ) {
-  
-    setTimeout(() => {
-      console.log(this.router.getCurrentNavigation().id, 'asfu')
-    }, 2000);
+
+    alert(this.router.getCurrentNavigation().extras.state.example);
 
   }
 

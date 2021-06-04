@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { HttpClient, HttpRequest, HttpEvent, HttpResponse, HttpEventType } from '@angular/common/http';
@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import * as firebase from 'firebase/app'
 import { Router } from '@angular/router';
 declare var $;
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -19,6 +20,7 @@ export class HeaderComponent implements OnInit {
     private firebaseauth: AngularFireAuth,
     private http: HttpClient,
     private router: Router,
+    @Inject(DOCUMENT) private _document: Document,
   ) { }
 
   name: string;
@@ -38,6 +40,8 @@ export class HeaderComponent implements OnInit {
   imageURL: string;
   selectedFiles: FileList;
   currentFile: File;
+  websiteURL: string;
+
 
   /////////get cats/////////////////
   getCategories() {
@@ -99,7 +103,9 @@ export class HeaderComponent implements OnInit {
     else if (!this.imageURL) {
       alert('add a company logo to continue')
     }
-
+    else if (!this.websiteURL) {
+      alert('add a company website continue')
+    }
     else {
       this.createUser()
 
@@ -121,8 +127,9 @@ export class HeaderComponent implements OnInit {
       const companyEmail = this.email.toLocaleLowerCase()
       const imageURL = this.imageURL
       const top = true
+      const websiteURL = this.websiteURL
       this.firestore.collection('vendors').doc(userID).set({
-        userID, name, timestamp, phone, adress, accountstatus, category, companyEmail, imageURL, top,
+        userID, name, timestamp, phone, adress, accountstatus, category, companyEmail, imageURL, top, websiteURL
       }).then(() => {
 
         this.login()
@@ -167,16 +174,24 @@ export class HeaderComponent implements OnInit {
         }
         else {
           console.log('tada logged in');
-
+          this.refreshPage()
           this.loggedIn = false;
           localStorage.setItem('log', 'true');
 
-          this.router.navigateByUrl('/exporter-profile', { queryParams: { id: user.user.uid } })
+
         }
       })
 
     }).catch(err => {
       alert(err.message)
+    })
+
+  }
+
+  viewProfile() {
+
+    const auth = this.firebaseauth.authState.subscribe(use => {
+      this.router.navigate(['exporter-profile'], { state: { example: use.uid } });
     })
 
   }
@@ -270,7 +285,7 @@ export class HeaderComponent implements OnInit {
           }
           else {
             this.loggedIn = false;
-            console.log('user is not logged in as vendor');
+            console.log('user is logged in as vendor');
           }
         })
       }
@@ -280,10 +295,27 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.firebaseauth.signOut().then(() => {
-      this.router.navigate(['/home'])
+      this.refreshPage()
+      this.router.navigateByUrl('home')
+
     }).catch(() => {
       alert('unable to signout')
     })
+  }
+
+  refreshPage() {
+    this._document.defaultView.location.reload();
+  }
+
+  currentPage: string;
+
+  gotoPage(pname: string) {
+    this.router.navigate([pname])
+  }
+
+  getPath() {
+
+    this.currentPage = this.router.url
   }
 
   ngOnInit(): void {
@@ -292,7 +324,7 @@ export class HeaderComponent implements OnInit {
       alert('choosed' + this.choosedcat)
     }
     this.checkLogin()
-
+    this.getPath()
   }
 
 }

@@ -28,38 +28,18 @@ export class AppComponent {
             }
             else {
 
-              console.log('user is not logged in as vendor');
+              console.log('user is logged in as vendor');
 
 
             }
           })
         }
         else {
-          this.firebaseauth.signInAnonymously().then((u) => {
-            const userID = u.user.uid
-            const date = new Date()
-            this.firestore.collection('userstrack').doc(u.user.uid).set({
-              userID,
-              date,
-            })
-          }).then(() => {
-            console.log('user signed in anaounamously');
 
-          })
         }
       }
       else {
-        this.firebaseauth.signInAnonymously().then((u) => {
-          const userID = u.user.uid
-          const date = new Date()
-          this.firestore.collection('userstrack').doc(u.user.uid).set({
-            userID,
-            date,
-          })
-        }).then(() => {
-          console.log('user signed in anaounamously');
 
-        })
       }
     })
   }

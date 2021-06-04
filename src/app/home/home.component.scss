@@ -234,6 +234,39 @@ FONTS
     width: 630px;
     text-align: center;
 }
+
+@media (max-width: 576px) {
+    .headmainbanner .banner .cont {
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, -80%);
+        width: 330px;
+        text-align: center;
+    }
+    
+    .headmainbanner .banner .cont h1 {
+        color: #fff;
+        font-family: "Work Sans", sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0px;
+        font-style: normal;
+        margin: 0px 0px 5px 0px;
+    }
+    .headmainbanner .banner .cont p {
+        color: #fff;
+        font-family: "Work Sans", sans-serif;
+        font-size: 10px;
+        font-weight: 100;
+        line-height: 10px;
+        letter-spacing: 1px;
+        font-style: normal;
+        margin: 0px;
+    }
+}
+
 .headmainbanner .banner .cont h1 {
     color: #fff;
     font-family: "Work Sans", sans-serif;
@@ -344,22 +377,22 @@ FONTS
 .latestNews {
     background: #f5f5f5;
     padding: 25px;
-  }
-  .latestNews h1.heading {
+}
+.latestNews h1.heading {
     color: #000;
-    font-family: 'Work Sans', sans-serif;
+    font-family: "Work Sans", sans-serif;
     font-size: 25px;
     font-weight: 700;
     line-height: 25px;
     font-style: normal;
     text-align: center;
     margin: 0px 0px 8px 0px;
-  }
-  .recentcolumns {
+}
+.recentcolumns {
     width: 95%;
     margin: 0px auto;
-  }
-  .recentcolumns .arrivalcard {
+}
+.recentcolumns .arrivalcard {
     position: relative;
     /* width: 244px !important; */
     /* height: 393px; */
@@ -367,90 +400,89 @@ FONTS
     background: #fff;
     box-shadow: 0 0 5px 3px #e6e6e6;
     border-radius: 8px;
-  }
-  .recentcolumns .arrivalcard .cardlabel {
+}
+.recentcolumns .arrivalcard .cardlabel {
     position: absolute;
     top: 0%;
     left: 5%;
     width: 18px;
     height: 25px;
-    background: #4576BB;
+    background: #4576bb;
     padding: 3px 0px;
-  }
-  .recentcolumns .arrivalcard .cardlabel p {
+}
+.recentcolumns .arrivalcard .cardlabel p {
     color: #fff;
-    font-family: 'Work Sans', sans-serif;
+    font-family: "Work Sans", sans-serif;
     font-size: 6px;
     font-weight: 400;
     line-height: 8px;
     font-style: normal;
     text-align: center;
     margin: 0px;
-  }
-  .recentcolumns .arrivalcard img {
+}
+.recentcolumns .arrivalcard img {
     width: 100%;
     /* height: 163px; */
-  }
-  .recentcolumns .arrivalcard .innercardmargin {
+}
+.recentcolumns .arrivalcard .innercardmargin {
     margin: 3px;
-  }
-  .recentcolumns .arrivalcard .innercardmargin .cardlineflex {
+}
+.recentcolumns .arrivalcard .innercardmargin .cardlineflex {
     display: flex;
     justify-content: start;
     align-items: center;
     margin: 0px 0px 3px 0px;
-  }
-  .recentcolumns .arrivalcard .innercardmargin .cardlineflex a {
+}
+.recentcolumns .arrivalcard .innercardmargin .cardlineflex a {
     display: flex;
     align-items: center;
-    color: #5F5F5F;
-    font-family: 'Work Sans', sans-serif;
+    color: #5f5f5f;
+    font-family: "Work Sans", sans-serif;
     font-size: 7px;
     font-weight: 400;
     line-height: 5px;
     font-style: normal;
     margin-right: 5px;
     text-decoration: none;
-  }
-  .recentcolumns .arrivalcard .innercardmargin .cardlineflex a img {
+}
+.recentcolumns .arrivalcard .innercardmargin .cardlineflex a img {
     width: 6.62px;
     height: 7.11px;
     margin-right: 2px;
-  }
-  .recentcolumns .arrivalcard .innercardmargin h4 {
+}
+.recentcolumns .arrivalcard .innercardmargin h4 {
     color: #000000;
-    font-family: 'Work Sans', sans-serif;
+    font-family: "Work Sans", sans-serif;
     font-size: 8px;
     font-weight: 600;
     line-height: 14px;
     font-style: normal;
-  }
-  .recentcolumns .arrivalcard .innercardmargin h6 {
-    color: #5F5F5F;
-    font-family: 'Work Sans', sans-serif;
+}
+.recentcolumns .arrivalcard .innercardmargin h6 {
+    color: #5f5f5f;
+    font-family: "Work Sans", sans-serif;
     font-size: 6px;
     font-weight: 400;
     line-height: 10px;
     font-style: normal;
-  }
-  .recentcolumns .arrivalcard .innercardmargin button {
+}
+.recentcolumns .arrivalcard .innercardmargin button {
     width: 50px;
     height: 20px;
     color: #fff;
-    background: #4576BB;
-    font-family: 'Work Sans', sans-serif;
+    background: #4576bb;
+    font-family: "Work Sans", sans-serif;
     font-size: 6px;
     font-weight: 400;
     font-style: normal;
     padding: 1px;
-  }
-  .recentcolumns button.slick-arrow {
+}
+.recentcolumns button.slick-arrow {
     top: 50%;
-  }
-  .recentcolumns button.slick-arrow::before {
+}
+.recentcolumns button.slick-arrow::before {
     opacity: 1;
-    color: #4576BB;
+    color: #4576bb;
     font-size: 25px;
     line-height: 0px;
-  }
-  
+}

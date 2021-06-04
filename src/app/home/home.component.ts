@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,7 @@ export class HomeComponent implements OnInit {
     private firestore: AngularFirestore,
     private firebaseauth: AngularFireAuth,
     private titleService: Title,
+    private router: Router,
   ) { }
 
   topExporters: any;
@@ -27,8 +29,13 @@ export class HomeComponent implements OnInit {
       this.topExporters = te;
     })
   }
+
+  viewExporter(uid: string) {
+    this.router.navigate(['exporter-profile'], { state: { example: uid } });
+  }
+
   ngOnInit(): void {
-     this.gettopExporters()
+    this.gettopExporters()
 
     ////////////////////title services/////////////////////////////
 
