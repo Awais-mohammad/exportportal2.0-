@@ -23,7 +23,7 @@ export class ProductsComponent implements OnInit {
   onResize(event) {
     this.width = window.innerWidth;
   }
-/////lksdhosighosid
+  /////lksdhosighosid
 
   width = window.innerWidth;
   categories: any;
@@ -35,10 +35,11 @@ export class ProductsComponent implements OnInit {
 
   getCats() {
     const cats = this.fireStore.collection('appData').doc('categories').get().subscribe((data: any) => {
+      console.log('data=>', data);
 
       if (data.exists) {
-        this.categories = data._delegate._document.data.value.mapValue.fields
-        console.log(this.categories);
+        this.categories = data.Df.sn.proto.mapValue.fields
+        console.log('categories',this.categories);
 
       }
       else {
@@ -74,12 +75,13 @@ export class ProductsComponent implements OnInit {
       console.log("Checking >>> ", subCat);
       const getDocs = this.fireStore.collection('products').doc(cat).collection(subCat).get().subscribe((data: any) => {
         if (data.empty == false) {
+          console.log('prod data-->', data);
 
 
           for (var k = 0; k < data.docs.length; k++) {
-            if (data.docs[k]._delegate._document.data.value.mapValue.fields != undefined) {
-              this.products.push(data.docs[k]._delegate._document.data.value.mapValue.fields);
-             
+            if (data.kf.docChanges[k].doc.sn.proto.mapValue.fields != undefined) {
+              this.products.push(data.kf.docChanges[k].doc.sn.proto.mapValue.fields);
+
             }
             if (k == data.docs.length - 1) {
               getDocs.unsubscribe();
@@ -89,7 +91,7 @@ export class ProductsComponent implements OnInit {
       })
     }
     console.log('products', this.products);
-   
+
   }
 
 

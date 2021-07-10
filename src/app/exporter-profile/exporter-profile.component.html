@@ -4,25 +4,36 @@
         <img src="../../assets/images/brightbanner.png" height="" width="" alt="banner" />
     </div>
 </div>
-<main class="main">
-    <section class="profileThumbnail">
+<main *ngIf="exporterData" class="main">
+    <section  class="profileThumbnail">
         <div class="profileimage">
-            <img src="../../assets/images/shanpack.png" width="" height="" alt="" />
+            <img src="{{exporterData.imageURL}}" width="" height="" alt="" />
         </div>
         <div class="title">
-            <h1>Shan Foods (Private) Limited</h1>
-            <p>@ShanFoods · Food & drink company</p>
+            <h1>{{exporterData.name}}</h1>
+            <p>{{exporterData.category}}</p>
         </div>
     </section>
     <section class="exporterProfile">
         <div class="aboutCL">
             <h1>About</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscings elit, sed do eiusmod tempor incididunt ut labore
-                ets dolore magna aliqua. minim veniam, quis nostrud es exercitation ullamco laboris nisi u.</p>
+            <p>
+                {{exporterData.name}} is located at {{exporterData.adress}}. We mainly deal with
+                {{exporterData.category}} products.
+                {{exporterData.name}} is registered at exportportal.pk since {{exporterData.timestamp}}.
+                {{exporterData.name}} have a total of <span *ngIf="products" >
+                    {{products.length}}
+                </span>
+                <span *ngIf="!products" >
+                    0
+                </span>
+                products.
+
+            </p>
             <h1>Contact</h1>
             <div class="info">
                 <img src="../../assets/images/Groupphone.png" width="" height="" alt="" />
-                <a href="#">+79151151365</a>
+                <a href="#"> {{exporterData.phone}}</a>
             </div>
             <div class="info">
                 <img src="../../assets/images/Groupmail.png" width="" height="" alt="" />
@@ -30,27 +41,13 @@
             </div>
             <div class="info">
                 <img src="../../assets/images/Groupsite.png" width="" height="" alt="" />
-                <a href="#">https://www.shanfoods.com</a>
+                <a href="#"> {{exporterData.websiteURL}}</a>
             </div>
-            <h1>Location</h1>
-            <img class="location" src="../../assets/images/mapside.png" width="" height="" alt="" />
-            <div class="info">
-                <h2>4.5</h2>
-                <div>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star grey"></i>
-                    </div>
-                    <p>183 reviews</p>
-                </div>
-            </div>
+
         </div>
         <div class="foodCards">
-            <div class="foodCard">
-                <img src="../../assets/images/shanpack.png" width="" height="" alt="" />
+            <div *ngFor="let item of products" class="foodCard">
+                <img src="{{item.imageURL}}" width="" height="" alt="" />
                 <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -59,256 +56,13 @@
                     <i class="fa fa-star grey"></i>
                     <span>5.0</span>
                 </div>
-                <h1>Shan Tandoori Masala</h1>
-                <p>$145.00</p>
+                <h1>{{item.productName}}</h1>
+                <p *ngIf="item.price">{{item.price}}</p>
+
+                <p *ngIf="!item.price">price not specified</p>
+
             </div>
-            <div class="foodCard">
-                <img src="../../assets/images/shanpack.png" width="" height="" alt="" />
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star grey"></i>
-                    <span>5.0</span>
-                </div>
-                <h1>Shan Tandoori Masala</h1>
-                <p>$145.00</p>
-            </div>
-            <div class="foodCard">
-                <img src="../../assets/images/shanpack.png" width="" height="" alt="" />
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star grey"></i>
-                    <span>5.0</span>
-                </div>
-                <h1>Shan Tandoori Masala</h1>
-                <p>$145.00</p>
-            </div>
-            <div class="foodCard">
-                <img src="../../assets/images/shanpack.png" width="" height="" alt="" />
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star grey"></i>
-                    <span>5.0</span>
-                </div>
-                <h1>Shan Tandoori Masala</h1>
-                <p>$145.00</p>
-            </div>
-            <div class="foodCard">
-                <img src="../../assets/images/shanpack.png" width="" height="" alt="" />
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star grey"></i>
-                    <span>5.0</span>
-                </div>
-                <h1>Shan Tandoori Masala</h1>
-                <p>$145.00</p>
-            </div>
-            <div class="foodCard">
-                <img src="../../assets/images/shanpack.png" width="" height="" alt="" />
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star grey"></i>
-                    <span>5.0</span>
-                </div>
-                <h1>Shan Tandoori Masala</h1>
-                <p>$145.00</p>
-            </div>
-            <div class="foodCard">
-                <img src="../../assets/images/shanpack.png" width="" height="" alt="" />
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star grey"></i>
-                    <span>5.0</span>
-                </div>
-                <h1>Shan Tandoori Masala</h1>
-                <p>$145.00</p>
-            </div>
-            <div class="foodCard">
-                <img src="../../assets/images/shanpack.png" width="" height="" alt="" />
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star grey"></i>
-                    <span>5.0</span>
-                </div>
-                <h1>Shan Tandoori Masala</h1>
-                <p>$145.00</p>
-            </div>
-            <div class="foodCard">
-                <img src="../../assets/images/shanpack.png" width="" height="" alt="" />
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star grey"></i>
-                    <span>5.0</span>
-                </div>
-                <h1>Shan Tandoori Masala</h1>
-                <p>$145.00</p>
-            </div>
-            <div class="foodCard">
-                <img src="../../assets/images/shanpack.png" width="" height="" alt="" />
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star grey"></i>
-                    <span>5.0</span>
-                </div>
-                <h1>Shan Tandoori Masala</h1>
-                <p>$145.00</p>
-            </div>
-            <div class="foodCard">
-                <img src="../../assets/images/shanpack.png" width="" height="" alt="" />
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star grey"></i>
-                    <span>5.0</span>
-                </div>
-                <h1>Shan Tandoori Masala</h1>
-                <p>$145.00</p>
-            </div>
-            <div class="foodCard">
-                <img src="../../assets/images/shanpack.png" width="" height="" alt="" />
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star grey"></i>
-                    <span>5.0</span>
-                </div>
-                <h1>Shan Tandoori Masala</h1>
-                <p>$145.00</p>
-            </div>
-            <div class="foodCard">
-                <img src="../../assets/images/shanpack.png" width="" height="" alt="" />
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star grey"></i>
-                    <span>5.0</span>
-                </div>
-                <h1>Shan Tandoori Masala</h1>
-                <p>$145.00</p>
-            </div>
-            <div class="foodCard">
-                <img src="../../assets/images/shanpack.png" width="" height="" alt="" />
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star grey"></i>
-                    <span>5.0</span>
-                </div>
-                <h1>Shan Tandoori Masala</h1>
-                <p>$145.00</p>
-            </div>
-            <div class="foodCard">
-                <img src="../../assets/images/shanpack.png" width="" height="" alt="" />
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star grey"></i>
-                    <span>5.0</span>
-                </div>
-                <h1>Shan Tandoori Masala</h1>
-                <p>$145.00</p>
-            </div>
-            <div class="foodCard">
-                <img src="../../assets/images/shanpack.png" width="" height="" alt="" />
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star grey"></i>
-                    <span>5.0</span>
-                </div>
-                <h1>Shan Tandoori Masala</h1>
-                <p>$145.00</p>
-            </div>
-            <div class="foodCard">
-                <img src="../../assets/images/shanpack.png" width="" height="" alt="" />
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star grey"></i>
-                    <span>5.0</span>
-                </div>
-                <h1>Shan Tandoori Masala</h1>
-                <p>$145.00</p>
-            </div>
-            <div class="foodCard">
-                <img src="../../assets/images/shanpack.png" width="" height="" alt="" />
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star grey"></i>
-                    <span>5.0</span>
-                </div>
-                <h1>Shan Tandoori Masala</h1>
-                <p>$145.00</p>
-            </div>
-            <div class="foodCard">
-                <img src="../../assets/images/shanpack.png" width="" height="" alt="" />
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star grey"></i>
-                    <span>5.0</span>
-                </div>
-                <h1>Shan Tandoori Masala</h1>
-                <p>$145.00</p>
-            </div>
-            <div class="foodCard">
-                <img src="../../assets/images/shanpack.png" width="" height="" alt="" />
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star grey"></i>
-                    <span>5.0</span>
-                </div>
-                <h1>Shan Tandoori Masala</h1>
-                <p>$145.00</p>
-            </div>
+
         </div>
     </section>
     <section class="footeremail">

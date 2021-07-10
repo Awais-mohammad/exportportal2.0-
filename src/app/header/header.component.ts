@@ -115,7 +115,7 @@ export class HeaderComponent implements OnInit {
 
   //////////////signUp////////////////////////
   createUser() {
-    this.firebaseauth.createUserWithEmailAndPassword(this.email, this.password).then((user) => {
+    this.firebaseauth.auth.createUserWithEmailAndPassword(this.email, this.password).then((user) => {
 
       const userID = user.user.uid;
       const timestamp = new Date()
@@ -164,11 +164,11 @@ export class HeaderComponent implements OnInit {
   ///////////////////login validator////////////////////
 
   login() {
-    this.firebaseauth.signInWithEmailAndPassword(this.email, this.password).then(user => {
+    this.firebaseauth.auth.signInWithEmailAndPassword(this.email, this.password).then(user => {
 
       this.firestore.collection('vendors').doc(user.user.uid).valueChanges().subscribe(data => {
         if (data == undefined) {
-          this.firebaseauth.signOut()
+          this.firebaseauth.auth.signOut()
           console.log('fata not dounf');
 
         }
@@ -200,7 +200,7 @@ export class HeaderComponent implements OnInit {
   error: string;
   ///////////////////////////reset pas//////////////////////
   resetPas() {
-    this.firebaseauth.sendPasswordResetEmail(this.email).then((msg: any) => {
+    this.firebaseauth.auth.sendPasswordResetEmail(this.email).then((msg: any) => {
       this.success = msg
     }).catch(err => {
       this.error = err.message
@@ -294,7 +294,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.firebaseauth.signOut().then(() => {
+    this.firebaseauth.auth.signOut().then(() => {
       this.refreshPage()
       this.router.navigateByUrl('home')
 
