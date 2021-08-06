@@ -5,7 +5,7 @@
     </div>
 </div>
 <main *ngIf="exporterData" class="main">
-    <section  class="profileThumbnail">
+    <section class="profileThumbnail">
         <div class="profileimage">
             <img src="{{exporterData.imageURL}}" width="" height="" alt="" />
         </div>
@@ -20,11 +20,12 @@
             <p>
                 {{exporterData.name}} is located at {{exporterData.adress}}. We mainly deal with
                 {{exporterData.category}} products.
-                {{exporterData.name}} is registered at exportportal.pk since {{exporterData.timestamp}}.
-                {{exporterData.name}} have a total of <span *ngIf="products" >
+                {{exporterData.name}} is registered at exportportal.pk since {{exporterData.timestamp * 1000 | date:
+                'MMM d, y, h:mm a'}}.
+                {{exporterData.name}} have a total of <span *ngIf="products">
                     {{products.length}}
                 </span>
-                <span *ngIf="!products" >
+                <span *ngIf="!products">
                     0
                 </span>
                 products.

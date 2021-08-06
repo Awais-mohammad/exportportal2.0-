@@ -27,24 +27,24 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path:'exporters',
-    component:ExportersComponent
+    path: 'exporters',
+    component: ExportersComponent
   },
   {
-    path:'about',component:AboutComponent
+    path: 'about', component: AboutComponent
   },
   {
-    path:'contact',component:ContactusComponent
+    path: 'contact', component: ContactusComponent
   },
-  {path:'news' , component:NewsComponent},
-  {path:'addproduct',component:AddProductComponent},
-  {path:'detail',component:DetailpageComponent},
-  {path:'company-info',component:EditCompanyinfoComponent},
-  {path:'info',component:PersonalinfoComponent},
-  {path:'exporter-profile' ,component:ExporterProfileComponent},
-  {path:'news-detail',component:NewsDetailsComponent},
-  {path:'product',component:ProductsComponent},
-  {path:'register',component:RegistrationComponent}
+  { path: 'news', component: NewsComponent },
+  { path: 'addproduct', component: AddProductComponent },
+  { path: 'detail', component: DetailpageComponent },
+  { path: 'company-info', component: EditCompanyinfoComponent },
+  { path: 'info', component: PersonalinfoComponent },
+  { path: 'exporter-profile', component: ExporterProfileComponent },
+  { path: 'news-detail', component: NewsDetailsComponent },
+  { path: 'product', component: ProductsComponent },
+  { path: 'register', component: RegistrationComponent }
 
 
 ];

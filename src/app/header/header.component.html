@@ -5,13 +5,13 @@
     </a>
     <nav class="mainMenu">
       <div class="icons">
-        <a href="#">
+        <a target="_blank" href="https://www.facebook.com/exportportal.pk">
           <img src="../../assets/images/facebook-white.png" width="" height="" alt="" />
         </a>
-        <a href="#">
+        <a target="_blank" href="https://twitter.com/Exportportalpk">
           <img src="../../assets/images/twitter-white.png" width="" height="" alt="" />
         </a>
-        <a href="#">
+        <a target="_blank" href="https://www.instagram.com/exportportal.pk/">
           <img src="../../assets/images/instagram-white.png" width="" height="" alt="" />
         </a>
         <a href="#">
@@ -51,13 +51,13 @@
           <a class="active" (click)="gotoPage('about')">About</a>
         </li>
 
-        <li *ngIf="currentPage== '/news'">
+        <!-- <li *ngIf="currentPage== '/news'">
           <a class="active" (click)="gotoPage('news')">News</a>
         </li>
 
         <li *ngIf="currentPage!= '/news'">
           <a (click)="gotoPage('news')">News</a>
-        </li>
+        </li> -->
 
         <li *ngIf="currentPage!= '/contact'">
           <a (click)="gotoPage('contact')">Contact</a>
@@ -87,13 +87,13 @@
           </a>
         </li>
         <li *ngIf="!loggedIn">
-          <button class="btn addProduct">Add product</button>
+          <button (click)="gotoPage('addproduct')" class="btn addProduct">Add product</button>
         </li>
         <li *ngIf="!loggedIn">
           <label class="dropdown">
             <div class="dd-button">
-              <img class="dp" src="../../assets/images/dp.png" width="" height="" alt="" />
-              <span> John Smith </span>
+              <img *ngIf="cu_data" class="dp" src="{{cu_data.imageURL}}" width="" height="" alt="" />
+              <span *ngIf="cu_data"> {{cu_data.name}} </span>
               <img class="menu" src="../../assets/images/menu.png" width="" height="" alt="" />
             </div>
             <input type="checkbox" class="dd-input" id="test">
@@ -130,9 +130,9 @@
               <li>
                 <a href="/about">About</a>
               </li>
-              <li>
+              <!-- <li>
                 <a href="/news">News</a>
-              </li>
+              </li> -->
               <li>
                 <a href="/contact">Contact</a>
               </li>

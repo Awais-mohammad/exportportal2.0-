@@ -271,6 +271,8 @@ export class HeaderComponent implements OnInit {
     this.checked = !this.checked
   }
 
+  cu_data: any;
+
   /////////////check login
 
   checkLogin() {
@@ -286,6 +288,8 @@ export class HeaderComponent implements OnInit {
           else {
             this.loggedIn = false;
             console.log('user is logged in as vendor');
+            this.cu_data = data
+            // alert(this.cu_data)
           }
         })
       }

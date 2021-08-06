@@ -14,7 +14,7 @@ export class ExporterProfileComponent implements OnInit {
     private firestore: AngularFirestore,
   ) {
 
-    alert(this.router.getCurrentNavigation().extras.state.example);
+    // alert(this.router.getCurrentNavigation().extras.state.example);
     this.userID = this.router.getCurrentNavigation().extras.state.example
     this.getData(this.userID)
   }

@@ -1,7 +1,11 @@
-.active{
-   color: blue;
+p:hover {
     cursor: pointer;
+    color: #0f79d8;
 }
-.inactive{
+
+.active {
+    color: #0f79d8;
+}
+span:hover {
     cursor: pointer;
 }

@@ -1,0 +1,17 @@
+.upimg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+label {
+    display: table;
+}
+.lgimg {
+    object-fit: contain;
+}

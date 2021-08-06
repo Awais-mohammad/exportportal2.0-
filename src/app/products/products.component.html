@@ -8,20 +8,20 @@
         <div *ngIf="categories" class="categoiies">
             <h1>CATEGORIES</h1>
             <div *ngFor="let item of categories.cats.arrayValue.values" class="catflex">
-                <p *ngIf="item==item.stringValue"  class="active">{{item.stringValue}}</p>
-                <p class="inactive" (click)="changeCat(item.stringValue)" *ngIf="item !=item.stringValue">{{item.stringValue}}</p>
+                <p *ngIf="cat==item.stringValue" class="active">{{item.stringValue}}</p>
+                <p (click)="changeCat(item.stringValue)" *ngIf="cat !=item.stringValue">{{item.stringValue}}</p>
             </div>
 
         </div>
         <div class="automotive padingautomation">
             <div class="fashiontitle">
                 <h1>{{cat}}</h1>
-               
+
             </div>
             <div class="fashion">
                 <div *ngFor="let item of products" class="productCard">
                     <img class="mainimg" src="{{item.imageURL.stringValue}}" width="" height="" alt="" />
-                    <span class="detail">Vendor detail</span>
+                    <span (click)="viewExporter(item.uploadedBy.stringValue)" class="detail">Vendor detail</span>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>

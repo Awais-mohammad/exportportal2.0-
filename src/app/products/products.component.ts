@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Component, OnInit, HostListener } from '@angular/core';
 
@@ -10,6 +11,7 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private fireStore: AngularFirestore,
+    private router: Router,
   ) {
     this.getCats();
     setTimeout(() => {
@@ -33,13 +35,17 @@ export class ProductsComponent implements OnInit {
   subCat: string;
   catIndex: number = 0;
 
+  viewExporter(uid: string) {
+    this.router.navigate(['exporter-profile'], { state: { example: uid } });
+  }
+
   getCats() {
     const cats = this.fireStore.collection('appData').doc('categories').get().subscribe((data: any) => {
       console.log('data=>', data);
 
       if (data.exists) {
         this.categories = data.Df.sn.proto.mapValue.fields
-        console.log('categories',this.categories);
+        console.log('categories', this.categories);
 
       }
       else {
